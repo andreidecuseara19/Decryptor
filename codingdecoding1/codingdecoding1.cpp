@@ -30,6 +30,7 @@ void afisareOrdine(char alfabet[26], int litere[26])
 char ch;
 int litere[26];
 int nrChar;
+float procente[26];
 
 int main()
 {
@@ -69,6 +70,18 @@ int main()
     }
 
     cout << endl << nrChar;
+   
+    for (int i = 0; i < 26; i++)
+    {
+        procente[i] = (float)litere[i] / (float)nrChar;
+    }
+
+    cout << endl;
+    for (int i = 0; i < 26; i++)
+    {
+        printf("%.6f", procente[i]);
+        cout << ' ';
+    }
 
     return 0;
 }
