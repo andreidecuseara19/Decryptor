@@ -1,3 +1,3 @@
 ﻿  codingdecoding1.cpp
-C:\Users\Andrei\source\repos\codingdecoding1\codingdecoding1\codingdecoding1.cpp(47,23): warning C4101: 'litera': unreferenced local variable
+C:\Users\Andrei\source\repos\codingdecoding1\codingdecoding1\codingdecoding1.cpp(52,23): warning C4101: 'litera': unreferenced local variable
   codingdecoding1.vcxproj -> C:\Users\Andrei\source\repos\codingdecoding1\Debug\codingdecoding1.exe

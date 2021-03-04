@@ -37,11 +37,16 @@ int main()
 
     ifstream inFile;
     inFile.open("D:\\Scoala\\IC\\roman.txt");
+    ofstream outFile;
+    outFile.open("D:\\Scoala\\IC\\codificat.txt");
     while (inFile >> ch) 
     {
-        if(isalpha(ch))
-        cout << codificare(ch);
-        litere[(int)((int)codificare(ch) - (int)'A')]++;
+        if (isalpha(ch))
+        {
+            cout << codificare(ch);
+            litere[(int)((int)codificare(ch) - (int)'A')]++;
+            outFile << codificare(ch);
+        }
     }
 
     char alfabet[26], litera;
