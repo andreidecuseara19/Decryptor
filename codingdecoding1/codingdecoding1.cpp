@@ -2,6 +2,7 @@
 #include <fstream>
 using namespace std;
 
+// codifica textul dupa cheia data
 char codificare(char c)
 {
     if (isalpha(c))
@@ -15,6 +16,7 @@ char codificare(char c)
     return c;
 }
 
+// ecodifica textul in functie de caracterul prezent si unde ar trebui sa fie (mapping)
 char decodificare(char c, int mapping[26])
 {
     if (isalpha(c))
@@ -25,6 +27,7 @@ char decodificare(char c, int mapping[26])
     return c;
 }
 
+// afiseaza ordinea caracterelor din textul codificat
 void afisareOrdine(char alfabet[26], int litere[26])
 {
     cout << endl;
@@ -37,6 +40,7 @@ void afisareOrdine(char alfabet[26], int litere[26])
         cout << alfabet[i] << ' ';
 }
 
+// vede pe ce pozitie ar trebui sa fie caracterul cu un anumit procent in functie de distributia normala
 int cautareOrdine(float procent, float distributieNormala[26])
 {
     float diferentaAbsoluta, aux;
@@ -73,6 +77,7 @@ int mapping[26];
 int main()
 {
 
+// deschide fisierele pentru input si output
     ifstream inFile;
     inFile.open("D:\\Scoala\\IC\\roman.txt");
     ofstream outFile;
@@ -91,6 +96,7 @@ int main()
         }
     }
 
+// initializeaza un sir de litere alfabetice
     char alfabet[26], litera;
     for (int i = 0; i < 26; i++)
     {
@@ -99,6 +105,7 @@ int main()
 
     afisareOrdine(alfabet, litere);
     
+// organizeaza sirul de aparitii si sirul alfabetic dupa ce litere sunt cele mai prezente
     for (int i = 0; i < 26; i++)
         for (int j = 0; j < 26; j++)
         {
@@ -111,6 +118,7 @@ int main()
 
     afisareOrdine(alfabet, litere);
 
+// numara caracterele din text
     for (int i = 0; i < 26; i++)
     {
         nrChar = nrChar + litere[i];
@@ -118,11 +126,13 @@ int main()
 
     cout << endl << nrChar;
    
+// calculeaza procentajele aparitiilor fiecarui caracter
     for (int i = 0; i < 26; i++)
     {
         procente[i] = ((float)litere[i] / (float)nrChar) * 100;
     }
 
+// si le afiseaza
     cout << endl;
     for (int i = 0; i < 26; i++)
     {
@@ -130,11 +140,13 @@ int main()
         cout << ' ';
     }
 
+// calculeaza pe ce pozitie ar trebui sa fie fiecare caracter (mapping)
     for (int i = 0; i < 26; i++)
     {
         mapping[i] = cautareOrdine(procente[i], distributieNormala);
     }
 
+// decodifica textul si il afiseaza
     cout << endl;
     while (codeFile >> ch)
     {
