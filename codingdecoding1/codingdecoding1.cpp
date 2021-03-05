@@ -74,6 +74,8 @@ float procente[26];
 float distributieNormala[26] = { 8.12 , 1.49 , 2.71 , 4.32 , 12.02 , 2.30 , 2.03 , 5.92 , 7.31 , 0.10 , 0.69 , 3.98 , 2.61 , 6.95 , 7.68 , 1.82 , 0.11 , 6.02 , 6.28 , 9.10 , 2.88 , 1.11 , 2.09 , 0.17 , 2.11 , 0.07};
                                  //a    b      c        d       e      f       g    h       i       j      k    l       m      n      o     p       q       r     s     t       u       v     w     x       y       z
 int mapping[26];
+int distributieLitere[26];
+
 int main()
 {
 
@@ -104,7 +106,13 @@ int main()
     }
 
     afisareOrdine(alfabet, litere);
-    
+   
+    for (int i = 0; i < 26; i++)
+    {
+        distributieLitere[i] = litere[i];
+    }
+
+///*
 // organizeaza sirul de aparitii si sirul alfabetic dupa ce litere sunt cele mai prezente
     for (int i = 0; i < 26; i++)
         for (int j = 0; j < 26; j++)
@@ -115,8 +123,10 @@ int main()
                 swap(alfabet[j], alfabet[j + 1]);
             }
         }
+//*/
 
     afisareOrdine(alfabet, litere);
+
 
 // numara caracterele din text
     for (int i = 0; i < 26; i++)
@@ -129,7 +139,7 @@ int main()
 // calculeaza procentajele aparitiilor fiecarui caracter
     for (int i = 0; i < 26; i++)
     {
-        procente[i] = ((float)litere[i] / (float)nrChar) * 100;
+        procente[i] = ((float)distributieLitere[i] / (float)nrChar) * 100;
     }
 
 // si le afiseaza
@@ -147,6 +157,12 @@ int main()
     }
 
 // decodifica textul si il afiseaza
+    cout << endl;
+    for (int i = 0; i < 26; i++)
+    {
+        cout << mapping[i]<< ' ';
+    }
+
     cout << endl;
     while (codeFile >> ch)
     {
